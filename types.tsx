@@ -6,6 +6,9 @@
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { CompositeScreenProps, NavigatorScreenParams } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+declare module "react-native-dotenv" {
+  export const GOOGLE_MAPS_API_KEY: string;
+}
 
 declare global {
   namespace ReactNavigation {

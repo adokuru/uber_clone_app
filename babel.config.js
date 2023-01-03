@@ -4,12 +4,12 @@ module.exports = function (api) {
     presets: ["babel-preset-expo"],
     plugins: [
       [
-        "nativewind/babel",
         "module:react-native-dotenv",
         {
-          moduleName: "@env",
+          moduleName: "react-native-dotenv",
           path: ".env",
         },
+        "nativewind/babel",
       ],
     ],
   };

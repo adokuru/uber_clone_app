@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { selectDestination, selectOrigin, setTravelTimeInfo } from "../app/slices/navigationSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-import { GOOGLE_MAPS_API_KEY } from "@env";
+import { GOOGLE_MAPS_API_KEY } from "react-native-dotenv";
 import MapViewDirections from "react-native-maps-directions";
 
 const Map = () => {

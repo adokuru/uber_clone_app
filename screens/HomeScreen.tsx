@@ -1,7 +1,7 @@
 import { Image, View } from "react-native";
 import { setDestination, setOrigin } from "../app/slices/navigationSlice";
 
-import { GOOGLE_MAPS_API_KEY } from "@env";
+import { GOOGLE_MAPS_API_KEY } from "react-native-dotenv";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import NavFavorites from "../components/NavFavorites";
 import NavOptions from "../components/NavOptions";
