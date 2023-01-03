@@ -5,7 +5,7 @@ import { Icon } from "react-native-elements";
 import Map from "../components/Map";
 import MapScreenNavigation from "../components/MapScreenNavigation";
 import React from "react";
-
+import tailwind from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 
 const MapScreen = () => {
@@ -15,14 +15,14 @@ const MapScreen = () => {
     <View>
       <TouchableOpacity
         onPress={() => navigation.navigate("HomeScreen")}
-        className='bg-gray-50 absolute top-8 left-4 z-50 p-3 rounded-full shadow-lg'
+        style={tailwind`bg-gray-50 absolute top-8 left-4 z-50 p-3 rounded-full shadow-lg`}
       >
         <Icon name='menu' />
       </TouchableOpacity>
-      <View className='h-1/2'>
+      <View style={tailwind`h-1/2`}>
         <Map />
       </View>
-      <View className='h-1/2'>
+      <View style={tailwind`h-1/2`}>
         <MapScreenNavigation />
       </View>
     </View>

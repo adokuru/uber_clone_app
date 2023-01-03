@@ -1,13 +1,14 @@
 import { Image, View } from "react-native";
 import { setDestination, setOrigin } from "../app/slices/navigationSlice";
 
-import { GOOGLE_MAPS_API_KEY } from "react-native-dotenv";
+const GOOGLE_MAPS_API_KEY = "";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import NavFavorites from "../components/NavFavorites";
 import NavOptions from "../components/NavOptions";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import tailwind from "tailwind-react-native-classnames";
 import { useDispatch } from "react-redux";
 
 const HomeScreen = () => {
@@ -15,7 +16,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-      <View className='p-5'>
+      <View style={tailwind`p-5`}>
         <Image
           style={{ width: 100, height: 100, resizeMode: "contain" }}
           source={{

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import { GOOGLE_MAPS_API_KEY } from "react-native-dotenv";
+import { GOOGLE_MAPS_API_KEY } from "@env";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { Icon } from "react-native-elements";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -9,7 +9,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StackList } from "./MapScreenNavigation";
 import { setDestination } from "../app/slices/navigationSlice";
-
+import tailwind from "tailwind-react-native-classnames";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 
@@ -18,16 +18,18 @@ const NavigateCard = () => {
   const navigation = useNavigation<NavigateCardProp>();
 
   return (
-    <SafeAreaView className="bg-white flex-1 justify-between">
-      <View className="flex-shrink">
-        <Text className="text-center pb-5 text-lg">Good morning, Papi</Text>
-        <View className="border-t border-gray-200 ">
+    <SafeAreaView style={tailwind`bg-white flex-1 justify-between`}>
+      <View style={tailwind`flex-shrink`}>
+        <Text style={tailwind`text-center pb-5 text-lg`}>
+          Good morning, Papi
+        </Text>
+        <View style={tailwind`border-t border-gray-200 `}>
           <GooglePlacesAutocomplete
-            placeholder='Where to?'
+            placeholder="Where to?"
             debounce={400}
             fetchDetails={true}
             enablePoweredByContainer={false}
-            nearbyPlacesAPI='GooglePlacesSearch'
+            nearbyPlacesAPI="GooglePlacesSearch"
             styles={toInputBoxStyles}
             query={{
               key: GOOGLE_MAPS_API_KEY,
@@ -44,21 +46,30 @@ const NavigateCard = () => {
             }}
           />
         </View>
-        <View className="px-5">
+        <View style={tailwind`px-5`}>
           <NavFavorites />
         </View>
       </View>
-      <View className="flex-row bg-white justify-evenly py-2 border-t border-gray-100">
+      <View
+        style={tailwind`flex-row bg-white justify-evenly py-2 border-t border-gray-100`}
+      >
         <TouchableOpacity
-          className="bg-black flex-row w-24 justify-between items-center py-3 px-4 rounded-full`
+          style={tailwind`bg-black flex-row w-24 justify-between items-center py-3 px-4 rounded-full`}
           onPress={() => navigation.navigate("RideOptionsCard")}
         >
-          <Icon name='car' type='font-awesome' color='white' size={16} />
-          <Text className="text-white text-center">Rides</Text>
+          <Icon name="car" type="font-awesome" color="white" size={16} />
+          <Text style={tailwind`text-white text-center`}>Rides</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row w-24 justify-between py-3 px-4 rounded-full">
-          <Icon name='fast-food-outline' type='ionicon' color='black' size={16} />
-          <Text className="text-black text-center">Eats</Text>
+        <TouchableOpacity
+          style={tailwind`flex-row w-24 justify-between py-3 px-4 rounded-full`}
+        >
+          <Icon
+            name="fast-food-outline"
+            type="ionicon"
+            color="black"
+            size={16}
+          />
+          <Text style={tailwind`text-black text-center`}>Eats</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

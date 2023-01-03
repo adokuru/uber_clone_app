@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Icon } from "react-native-elements";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { selectTravelTimeInfo } from "../app/slices/navigationSlice";
-
+import tailwind from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 
@@ -14,12 +14,12 @@ const RideOptionsCard = () => {
   const travelTimeInformation = useSelector(selectTravelTimeInfo);
 
   return (
-    <SafeAreaView className='bg-white flex-1'>
-      <View className=''>
-        <TouchableOpacity onPress={() => navigation.goBack()} className='absolute top-1 left-0 px-5 rounded-full'>
+    <SafeAreaView style={tailwind`bg-white flex-1`}>
+      <View style={tailwind``}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={tailwind`absolute top-1 left-0 px-5 rounded-full`}>
           <Icon name={Platform.OS === "ios" ? "ios-chevron-back" : "md-arrow-back"} type='ionicon' />
         </TouchableOpacity>
-        <Text className='text-center mb-5 text-lg'>Select a Ride - {travelTimeInformation?.distance.text}</Text>
+        <Text style={tailwind`text-center mb-5 text-lg`}>Select a Ride - {travelTimeInformation?.distance.text}</Text>
       </View>
       <FlatList
         data={ridesData}
@@ -39,22 +39,22 @@ const RideOptionsCard = () => {
                 uri: image,
               }}
             />
-            <View className='-ml-8'>
-              <Text className='text-lg font-bold'>{title}</Text>
+            <View style={tailwind`-ml-8`}>
+              <Text style={tailwind`text-lg font-bold`}>{title}</Text>
               <Text>{travelTimeInformation?.duration.text}</Text>
             </View>
-            <Text className='text-lg'>
-              {new Intl.NumberFormat("ee-gh", {
-                currency: "GHS",
+            <Text style={tailwind`text-lg`}>
+              {new Intl.NumberFormat("en-ng", {
+                currency: "NGN",
                 style: "currency",
               }).format(((travelTimeInformation?.duration.value || 0) * SURGE_CHARGE_RATE * multiplier) / 100)}
             </Text>
           </TouchableOpacity>
         )}
       />
-      <View className='mt-auto border-t border-gray-200'>
+      <View style={tailwind`mt-auto border-t border-gray-200`}>
         <TouchableOpacity disabled={!selected} style={tailwind.style(`bg-black py-3 m-3`, !selected && "bg-gray-200")}>
-          <Text className='text-center text-white text-lg'>Choose {selected?.title}</Text>
+          <Text style={tailwind`text-center text-white text-lg`}>Choose {selected?.title}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

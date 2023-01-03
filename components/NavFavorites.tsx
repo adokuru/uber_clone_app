@@ -6,7 +6,7 @@ import { HomeScreenProp } from "./NavOptions";
 import { Icon } from "react-native-elements";
 import { Point } from "react-native-google-places-autocomplete";
 import React from "react";
-
+import tailwind from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 
 const NavFavorites = ({ shouldSetOrigin }: { shouldSetOrigin?: boolean }) => {
@@ -24,7 +24,7 @@ const NavFavorites = ({ shouldSetOrigin }: { shouldSetOrigin?: boolean }) => {
       ItemSeparatorComponent={() => (
         <View
           style={[
-            `bg-gray-200`,
+            tailwind`bg-gray-200`,
             {
               height: 0.5,
             },
@@ -33,7 +33,7 @@ const NavFavorites = ({ shouldSetOrigin }: { shouldSetOrigin?: boolean }) => {
       )}
       renderItem={({ item: { name, icon, location, description } }) => (
         <TouchableOpacity
-          className="flex-row items-center py-5`
+          style={tailwind`flex-row items-center py-5`}
           onPress={() => {
             if (shouldSetOrigin) {
               dispatch(
@@ -53,10 +53,10 @@ const NavFavorites = ({ shouldSetOrigin }: { shouldSetOrigin?: boolean }) => {
             }
           }}
         >
-          <Icon className="mr-4 rounded-full bg-gray-300 p-3` name={icon} type='ionicon' color='white' size={18} />
+          <Icon style={tailwind`mr-4 rounded-full bg-gray-300 p-3`} name={icon} type='ionicon' color='white' size={18} />
           <View>
-            <Text className="font-bold text-lg">{name}</Text>
-            <Text className="text-gray-500">{description}</Text>
+            <Text style={tailwind`font-bold text-lg`}>{name}</Text>
+            <Text style={tailwind`text-gray-500`}>{description}</Text>
           </View>
         </TouchableOpacity>
       )}
@@ -77,15 +77,15 @@ const favoritesData: FavoritesData = [
     id: "234",
     icon: "home",
     name: "Home",
-    location: { lat: 5.4945, lng: -0.4118 },
-    description: "Jordan Gospel Centre, Land of Grace",
+    location: { lat: 8.9957787, lng: 7.4284061 },
+    description: "6 Niger Crescent, Suncity Estate, Abuja",
   },
   {
     id: "567",
     icon: "briefcase",
     name: "Work",
-    location: { lat: 5.5497, lng: -0.3522 },
-    description: "Finger Bites Kitchen, Mile 11",
+    location: { lat: 9.0691, lng: 7.4237 },
+    description: "DTH Africa, 4 Mike Akhigbe Street, Jabi, Abuja",
   },
 ];
 

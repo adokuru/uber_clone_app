@@ -3,8 +3,9 @@ import React, { useEffect, useRef } from "react";
 import { selectDestination, selectOrigin, setTravelTimeInfo } from "../app/slices/navigationSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-import { GOOGLE_MAPS_API_KEY } from "react-native-dotenv";
+// import { GOOGLE_MAPS_API_KEY } from "@env";
 import MapViewDirections from "react-native-maps-directions";
+import tailwind from "tailwind-react-native-classnames";
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const Map = () => {
         longitudeDelta: 0.005,
       }}
       mapType='mutedStandard'
-      className="flex-1`
+      style={tailwind`flex-1`}
     >
       {origin && destination && (
         <MapViewDirections
